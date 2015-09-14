@@ -21,7 +21,11 @@ function define( channel, options, connectionName ) {
 		connectionName,
 		JSON.stringify( _.omit( valid, [ 'name', 'type' ] ) )
 	);
-	return channel.assertExchange( options.name, options.type, valid );
+  if (options.usecheck) {
+    return channel.checkExchange(options.name);
+  } else {
+    return channel.assertExchange(options.name, options.type, valid);
+  }
 }
 
 function getChannel( connection ) {
