@@ -304,6 +304,7 @@ Options is a hash that can contain the following:
  * durable 			true|false		survive broker restarts
  * persistent 		true|false		a.k.a. persistent delivery, messages saved to disk
  * alternate 		'alt.exchange'	define an alternate exchange
+ * usecheck 		'true|false'	do not create exchange check only if exist
 
 ### addQueue( queueName, [options], [connectionName] )
 The call returns a promise that can be used to determine when the queue has been created on the server.
