@@ -86,7 +86,7 @@ function getReply( channel, raw, replyQueue, connectionName ) {
 		var replyTo = raw.properties.replyTo;
 		raw.ack();
 		if ( replyTo ) {
-			var payload = new Buffer( JSON.stringify( reply ) ),
+			var payload = Buffer.isBuffer(reply) ? reply : Buffer( JSON.stringify( reply ) ),
 				publishOptions = {
 					type: replyType || raw.type + '.reply',
 					contentType: 'application/json',
